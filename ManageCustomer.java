@@ -20,6 +20,13 @@ public class ManageCustomer  implements ICustomer{
     private Scanner sc = new Scanner(System.in);
     private CheckValid cv = new CheckValid();
     private List<Order> orders;
+
+    public ManageCustomer(List<Customer> customers) {
+        this.customers = customers;
+    }
+    public ManageCustomer() {
+        this.customers = new ArrayList<>();
+    }
     
     @Override
     public void registerCustomer() {
@@ -173,4 +180,5 @@ public class ManageCustomer  implements ICustomer{
     }
     
 }
+
 

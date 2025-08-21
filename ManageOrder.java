@@ -22,9 +22,15 @@ public class ManageOrder implements IOrder{
     private ManageMenu manageMenu;
     private Scanner sc = new Scanner(System.in);
 
+    public ManageOrder(ManageCustomer manageCustomer, ManageMenu manageMenu, List<Order> orders) {
+        this.manageCustomer = manageCustomer;
+        this.manageMenu = manageMenu;
+        this.orders = orders;
+    }
     public ManageOrder(ManageCustomer manageCustomer, ManageMenu manageMenu) {
         this.manageCustomer = manageCustomer;
         this.manageMenu = manageMenu;
+        this.orders = new ArrayList<>();  
     }
     
     @Override
@@ -186,4 +192,5 @@ public class ManageOrder implements IOrder{
     }
     
 }
+
 

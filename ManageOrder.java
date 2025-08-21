@@ -171,7 +171,13 @@ public class ManageOrder implements IOrder{
         System.out.println("-------------------------------------------------------------------------");
         System.out.printf("%-10s | %-10s | %-12s | %-8s | %-6s | %-10s%n","ID", "Event date", "Customer ID", "SetMenu", "Tables", "Cost");
         System.out.println("-------------------------------------------------------------------------");
-        
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        for (Order o : orders) {
+        Menu m = manageMenu.findByCode(o.getSetMenu()); 
+        double price = (m != null) ? m.getPrice() : 0;
+        System.out.printf("%-6s | %-10s | %-11s | %-7s | %10.0f | %6d | %10.0f%n",o.getOrderId(),sdf.format(o.getEventDate()),o.getCustomerCode(),o.getSetMenu(),price,o.getNumOfTable(),o.getTotalCost());
+        }
+        System.out.println("-------------------------------------------------------------------------");
     }
 
     @Override
@@ -180,3 +186,4 @@ public class ManageOrder implements IOrder{
     }
     
 }
+

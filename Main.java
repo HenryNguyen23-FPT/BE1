@@ -14,12 +14,14 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        ManageCustomer manageCustomer = new ManageCustomer();
-        ManageMenu manageMenu = new ManageMenu();
-        ManageOrder manageOrder = new ManageOrder(manageCustomer, manageMenu);
         ManageFile manageFile = new ManageFile();
+        List<Customer> customers = manageFile.loadCustomers();
+        List<Order> orders = manageFile.loadOrders();
+        ManageCustomer manageCustomer = new ManageCustomer(customers);
+        ManageMenu manageMenu = new ManageMenu();
+        ManageOrder manageOrder = new ManageOrder(manageCustomer, manageMenu,orders);
         manageMenu.loadMenusFromCSV("feastMenu.csv");
-
+        
         int choice;
         do {
             System.out.println("========= Traditional Feast Order Management =========");
@@ -86,3 +88,4 @@ public class Main {
         } while (choice != 9);
     }
 }
+

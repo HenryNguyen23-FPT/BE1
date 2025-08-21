@@ -80,7 +80,7 @@ public class ManageCustomer  implements ICustomer{
         System.out.println("This customer does not exist.");
         return;
     }
-        System.out.println("New: "+newCustomer.getCode()+" | "+newCustomer.getName()+" | "+newCustomer.getPhone()+" | "+newCustomer.getEmail());
+        System.out.println("Old: "+newCustomer.getCode()+" | "+newCustomer.getName()+" | "+newCustomer.getPhone()+" | "+newCustomer.getEmail());
         
         System.out.print("Enter new name: ");
         String newName = sc.nextLine().trim();
@@ -173,3 +173,4 @@ public class ManageCustomer  implements ICustomer{
     }
     
 }
+
